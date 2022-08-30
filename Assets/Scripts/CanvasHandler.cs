@@ -16,6 +16,7 @@ public class CanvasHandler : MonoBehaviour
 
     private void PauseGame()
     {
+
         if (paused)
         {
             paused = false;

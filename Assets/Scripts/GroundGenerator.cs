@@ -156,5 +156,6 @@ public class GroundGenerator : MonoBehaviour
                     obstacle.transform.position.z + Random.Range(1000, 1500));
             }
         }
+
     }
 } // class

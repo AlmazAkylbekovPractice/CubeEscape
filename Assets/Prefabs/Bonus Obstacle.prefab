@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1595672646565418878}
   - component: {fileID: 1595672646565418879}
   - component: {fileID: 394372287995074527}
+  - component: {fileID: 830325632}
   m_Layer: 0
   m_Name: Bonus Obstacle
   m_TagString: BonusObstacle
@@ -119,3 +120,19 @@ MonoBehaviour:
   movingSpeed: 2
   bonusObstacle: 1
   bonusObstacleParticles: {fileID: 8083031438022741702, guid: 377a5220c93c844b8b48b027b3ec8464, type: 3}
+--- !u!54 &830325632
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595672646565418874}
+  serializedVersion: 2
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

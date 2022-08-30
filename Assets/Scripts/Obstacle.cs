@@ -73,11 +73,16 @@ public class Obstacle : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (bonusObstacle)
+        if (collision.gameObject.tag == "Player")
         {
-            var bonusObstacleParticle = Instantiate(bonusObstacleParticles, transform.position, Quaternion.identity);
-            bonusObstacleParticle.Play();
-            Destroy(gameObject);
+            if (bonusObstacle)
+            {
+                var bonusObstacleParticle = Instantiate(bonusObstacleParticles, transform.position, Quaternion.identity);
+                bonusObstacleParticle.Play();
+                Destroy(gameObject);
+            }
         }
+
+        
     }
 }
