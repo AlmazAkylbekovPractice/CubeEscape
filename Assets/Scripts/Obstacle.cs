@@ -16,6 +16,9 @@ public class Obstacle : MonoBehaviour
 
     [SerializeField] private float movingSpeed = 2f;
 
+    [SerializeField] private bool bonusObstacle;
+    [SerializeField] private ParticleSystem bonusObstacleParticles;
+
     private bool rightDir = false;
     private bool upDir = false;
 
@@ -65,6 +68,16 @@ public class Obstacle : MonoBehaviour
                 if (gameObject.transform.position.y <= minY)
                     upDir = true;
             }
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (bonusObstacle)
+        {
+            var bonusObstacleParticle = Instantiate(bonusObstacleParticles, transform.position, Quaternion.identity);
+            bonusObstacleParticle.Play();
+            Destroy(gameObject);
         }
     }
 }

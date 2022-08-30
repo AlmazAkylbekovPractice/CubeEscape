@@ -12,12 +12,15 @@ public class GroundGenerator : MonoBehaviour
     [SerializeField] GameObject movingObstacle;
     [SerializeField] GameObject movingObstacleTwo;
 
+    [SerializeField] GameObject bonusObstacle;
+
     [SerializeField] Transform player;
 
     [SerializeField] private List<GameObject> obstaclesList;
 
     [SerializeField] private int generatedObstacles = 60;
     [SerializeField] private int gemeratedMovingObstacles = 20;
+    [SerializeField] private int gneratedBonusObstacles = 10;
 
     private float playerDistanseZ = 500f;
 
@@ -25,6 +28,7 @@ public class GroundGenerator : MonoBehaviour
     {
         GenerateObstaclesOnAwake();
         GenerateMovingObstacles();
+        GenerateBonusObstacles();
     }
 
     void Update()
@@ -83,6 +87,18 @@ public class GroundGenerator : MonoBehaviour
                 ground_2.transform.position.z + playerDistanseZ);
         }
 
+    }
+
+    private void GenerateBonusObstacles()
+    {
+        for (int i = 0; i < gneratedBonusObstacles; i++)
+        {
+            var bonusObstaclePosition = new Vector3(1,1,1);
+            bonusObstaclePosition.z = Random.Range(player.transform.position.z + 30, 3000);
+
+            Instantiate(bonusObstacle, bonusObstaclePosition, Quaternion.identity, gameObject.transform);
+
+        }
     }
 
     private void GenerateObstaclesOnAwake()

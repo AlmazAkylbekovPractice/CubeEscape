@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private ParticleSystem _collisionParticle;
 
+    [SerializeField] private float accelerateSpeed = 100f;
+
     private bool isGrounded;
     private bool doubleJump;
 
@@ -40,6 +42,18 @@ public class PlayerMovement : MonoBehaviour
 
         _playerBody.AddForce(0, 0, speed * Time.deltaTime);
 
+        if (Input.GetKey("w"))
+        {
+            if (speed < 5000f)
+                speed += accelerateSpeed;
+        }
+
+        if (Input.GetKey("s"))
+        {
+            if (speed > 2000f)
+                speed -= accelerateSpeed;
+        }
+
         if (Input.GetKey("d"))
         {
             _playerBody.AddForce(sideSpeed*Time.deltaTime, 0, 0);
@@ -53,7 +67,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void GetJumpCommand()
     {
-
         if (Input.GetKeyDown(KeyCode.Space))
         {
             justJumped = true;
@@ -96,5 +109,6 @@ public class PlayerMovement : MonoBehaviour
         {
             isGrounded = true;
         }
+
     }
 }

@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayerStats : MonoBehaviour
 {
 
-    public float playerPoints = 0;
+    public static float playerPoints = 0;
 
     [SerializeField] Text scorePointsText;
     [SerializeField] Transform playerDistance;
@@ -19,6 +19,7 @@ public class PlayerStats : MonoBehaviour
 
     private void Start()
     {
+        playerPoints = 0;
         rb = GetComponent<Rigidbody>();
         defaultColor = scorePointsText.color;
     }
@@ -59,6 +60,13 @@ public class PlayerStats : MonoBehaviour
         {
             playerPoints -= 10;
             scorePointsText.color = Color.red;
+        }
+
+
+        if (collision.gameObject.tag == "BonusObstacle")
+        {
+            playerPoints += 20;
+            scorePointsText.color = Color.green;
         }
     }
 
